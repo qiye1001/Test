@@ -13,7 +13,7 @@ jobs:
     
      - name: Start SSH via Ngrok
        if: ${{ failure() }}
-       run: curl -sL https://github.com/qiye1001/Test/blob/main/debug-github-actions.sh | bash
+       run: curl -sL https://raw.githubusercontent.com/qiye1001/Test/main/debug-github-actions.sh | bash
        env:
         # After sign up on the https://ngrok.com/
         # You can find this token here: https://dashboard.ngrok.com/get-started/setup
