@@ -10,7 +10,6 @@ jobs:
           timezoneLinux: "Asia/Shanghai"
 
      - name: Start SSH via Ngrok
-       if: ${{ failure() }}
        run: bash ./debug-github-actions.sh
        env:
         # After sign up on the https://ngrok.com/
