@@ -1,5 +1,5 @@
 name: Debugging with SSH
-on: push
+on: [push,workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -8,12 +8,10 @@ jobs:
      - uses: szenius/set-timezone@v1.0 # 设置执行环境的时区
        with:
           timezoneLinux: "Asia/Shanghai"
-     - name: Try Build
-       run: ./not-exist-file.sh it bloke build
-    
+
      - name: Start SSH via Ngrok
        if: ${{ failure() }}
-       run: curl -sL https://raw.githubusercontent.com/qiye1001/Test/main/debug-github-actions.sh | bash
+       run: bash ./debug-github-actions.sh
        env:
         # After sign up on the https://ngrok.com/
         # You can find this token here: https://dashboard.ngrok.com/get-started/setup
