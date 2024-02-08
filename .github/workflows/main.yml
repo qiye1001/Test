@@ -9,7 +9,11 @@ jobs:
        with:
           timezoneLinux: "Asia/Shanghai"
 
+     - name: Try Build
+       run: ./not-exist-file.sh it bloke build
+       
      - name: Start SSH via Ngrok
+       if: ${{ failure() }}
        run: bash ./debug-github-actions.sh
        env:
         # After sign up on the https://ngrok.com/
